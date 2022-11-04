@@ -111,3 +111,22 @@ public class ProcesarEmpleados {
                 }
         );
     }
+
+    static void sumadesalariosreducestream(){
+        // calcula la suma de los salarios de los empleados con el método reducede Stream
+        System.out.printf("Suma de los salarios de los empleados (mediante el metodo reduce): %.2f%n",
+                empleados.stream()
+                        .mapToDouble(Empleado::getSalario)
+                        .reduce(0, (valor1, valor2) -> valor1 + valor2));
+    }
+
+    static void promediodesalariosdoublestream(){
+        // promedio de salarios de empleados con el método average de DoubleStream
+        System.out.printf("Promedio de salarios de los empleados: %.2f%n",
+                empleados.stream()
+                        .mapToDouble(Empleado::getSalario)
+                        .average()
+                        .getAsDouble());
+    }
+     // fin de main
+} // fin de la clase Procesar empleados
